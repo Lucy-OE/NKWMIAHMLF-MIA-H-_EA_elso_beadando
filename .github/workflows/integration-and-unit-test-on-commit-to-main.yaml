@@ -1,0 +1,17 @@
+name: integration-and-unit-test-on-commit-to-main
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  integration-and-unit-test-on-commit-to-main:
+    runs-on: windows-latest
+    steps: 
+      - uses: actions/checkout@v6
+      - name: setup-python
+        uses: actions/setup-python@v6
+        with: 
+          python-version: '3.14' 
+      - name: setup-pip-modules
+        run: python -m pip install -r requirements.txt
+      - run: pytest -m "unit and integration"
