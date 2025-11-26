@@ -1,6 +1,6 @@
 name: integration-and-unit-test-on-commit-to-main
 on:
-  commit: main
+  push: main
 jobs:
   integration-and-unit-test-on-commit-to-main:
     runs-on: windows-latest
